@@ -1,2 +1,9 @@
 # PyModalSound
-Modal sound synthesis framework written in python
+
+## requirements
+
+- Pytorch and CUDA (CUDA nvcc version consistent with your pytorch installation)
+- plotly pyopencl numpy scipy numba meshio gmsh
+- Bempp 
+
+
