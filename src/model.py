@@ -160,11 +160,11 @@ class ModalSoundObj:
         return self.get_omega(mode_id) / 343.2
 
     def solve_ffat_map(self, mode_id, points, tol=1e-6, maxiter=2000):
-        triangle_neumann = self.get_triangle_neumann(mode_id)
+        triangle_neumann = self.get_triangle_neumann(mode_id) * 1e5
         bem_model = BEMModel(
             self.surf_vertices,
             self.surf_triangles,
             self.get_wave_number(mode_id),
         )
         residual = bem_model.boundary_equation_solve(triangle_neumann, tol, maxiter)
-        return bem_model.potential_solve(points)
+        return bem_model.potential_solve(points) * 1e-5
